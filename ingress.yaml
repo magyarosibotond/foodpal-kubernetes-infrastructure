@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: foodpal-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: foodpal-auth
+          servicePort: 80
+      - path: /profile
+        backend:
+          serviceName: foodpal-auth
+          servicePort: 80
+      - path: /auth
+        backend:
+          serviceName: foodpal-auth
+          servicePort: 80
+      - path: /posts
+        backend:
+          serviceName: foodpal-feed-service
+          servicePort: 80

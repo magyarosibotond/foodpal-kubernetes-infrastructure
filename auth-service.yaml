@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foodpal-auth
+  labels:
+    app: foodpal-auth
+spec:
+  selector:
+    app: foodpal-auth
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: foodpal-auth
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: foodpal-auth
+    spec:
+      containers:
+      - name: foodpal-auth
+        image: botix1/foodpal-auth
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: jwt-secret
+              key: hash
