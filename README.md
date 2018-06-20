@@ -4,9 +4,9 @@ A microservice based Node.js application for sharing food.
 
 Components:
 
-* Auth service
-* Feed service
-* Notification service
+* [Auth service](https://github.com/magyarosibotond/foodpal-auth-service)
+* [Feed service](https://github.com/magyarosibotond/foodpal-feed-service)
+* [Notification service](https://github.com/magyarosibotond/foodpal-notification-service)
 
 ## Building
 
